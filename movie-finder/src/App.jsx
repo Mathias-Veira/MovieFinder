@@ -1,0 +1,15 @@
+import { Home } from "./pages/Home"
+import { Login } from "./pages/Login"
+import { Registro } from "./pages/Registro"
+import {Route,Routes} from "react-router-dom"
+export const App = () => {
+  return (
+    <>
+        <Routes>
+            <Route path="/" element={<Login></Login>}></Route>
+            <Route path="/registro" element={<Registro></Registro>}></Route>
+            <Route path="/home" element={<Home></Home>}></Route>
+        </Routes>
+    </>
+  )
+}
