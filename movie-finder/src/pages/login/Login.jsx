@@ -1,23 +1,8 @@
 import "./login.css";
-import { useState } from "react";
+import { useSubmit } from "./useSubmit";
+
 export const Login = () => {
-  const [form, setForm] = useState({
-    nombreUsuario:"",
-    passwordUsuario:""
-  });
-  const handleSubmit = (event) =>{
-    event.preventDefault();
-    console.log(form);
-  };
-
-  const handleOnChange = ({target}) =>{
-    const {name, value} = target;
-
-    setForm({
-      ...form,
-      [name]:value
-    });
-  }
+  const {form,handleOnChange,handleSubmit} = useSubmit();
   return (
     <>
       <nav className="navbar bg-dark">
