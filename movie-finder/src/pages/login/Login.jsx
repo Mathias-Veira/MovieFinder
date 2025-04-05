@@ -1,21 +1,27 @@
 import "./login.css";
 import { useSubmit } from "./useSubmit";
+import { useEffect } from "react";
 
 export const Login = () => {
-  const {form,handleOnChange,handleSubmit} = useSubmit();
+  const { form, handleOnChange, handleSubmit,handleOnBlur,hasError,navigate,leerCookie } = useSubmit();
+  useEffect(() => {
+    const user = leerCookie('usuario');
+    if(user) navigate('/home')
+  }, [])
+  
   return (
     <>
       <nav className="navbar bg-dark">
         <div className="container-fluid">
           <span className="navbar-brand mb-0 h1 d-flex w-100 align-items-center column-gap-1 text-white">
-            <i className="fa-solid fa-film"></i>{" "}
+            <i className="fa-solid fa-film"></i>
             <p className="mb-0 ">MovieFinder</p>
           </span>
         </div>
       </nav>
       <hr className="hr-thin" />
 
-      <form className="bg-dark" onSubmit={handleSubmit}>
+      <form className="bg-dark form" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="userNameInput" className="form-label text-white">
             Nombre de Usuario
@@ -27,7 +33,12 @@ export const Login = () => {
             name="nombreUsuario"
             value={form.nombreUsuario}
             onChange={handleOnChange}
+            onBlur={handleOnBlur}
+            required
           />
+          <p className="errores" hidden={!hasError.nombreUsuario.error}>
+            {hasError.nombreUsuario.textError}
+          </p>
         </div>
         <div className="mb-3">
           <label htmlFor="passwordInput" className="form-label text-white">
@@ -40,13 +51,20 @@ export const Login = () => {
             id="passwordInput"
             value={form.passwordUsuario}
             onChange={handleOnChange}
+            onBlur={handleOnBlur}
+            required
           />
+          <p className="errores"  hidden={!hasError.passwordUsuario.error}>
+            {hasError.passwordUsuario.textError}
+          </p>
         </div>
         <div className="mb-3 d-flex justify-content-center align-items-center flex-column">
           <p className="text-white">¿No tienes cuenta?</p>
-          <a href="" className="text-white">Registrate</a>
+          <a href="" className="text-white">
+            Registrate
+          </a>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" disabled={hasError.nombreUsuario.error || hasError.passwordUsuario.error}>
           Log In
         </button>
       </form>

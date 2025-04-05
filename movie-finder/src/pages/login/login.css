@@ -1,20 +1,31 @@
 .hr-thin{
-    border-top:0.5px solid;
+    /* 0.5px */
+    border-top:0.03125rem solid;
     margin: 0;
 }
 
-.bg-dark{
+.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 60px;
+    /* Esto son 60px */
+    padding-top: 3.75rem ;
+    height: auto;
 }
 
 .btn{
-    width: 300px;
+    width: 80%;
+    max-width: 300px;
 }
 
 .form-control{
-    width: 400px !important;
+    width: 100%;
+    max-width: 400px;
+}
+
+.errores{
+    color: red;
+    /* 14px */
+    font-size: 0.875rem;
 }

@@ -1,3 +1,4 @@
+import { PrivateRouteComponent } from "./components/PrivateRouteComponent"
 import { Home } from "./pages/Home"
 import { Login } from "./pages/login/Login"
 import { Registro } from "./pages/Registro"
@@ -8,7 +9,8 @@ export const App = () => {
         <Routes>
             <Route path="/" element={<Login></Login>}></Route>
             <Route path="/registro" element={<Registro></Registro>}></Route>
-            <Route path="/home" element={<Home></Home>}></Route>
+            <Route path="/home" element={<PrivateRouteComponent><Home/></PrivateRouteComponent>}/>
+
         </Routes>
     </>
   )
