@@ -14,14 +14,27 @@
     height: auto;
 }
 
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
 .btn{
-    width: 80%;
+    width: 40%;
     max-width: 300px;
 }
 
 .form-control{
     width: 100%;
     max-width: 400px;
+}
+
+.form-label{
+    display: flex;
+    width: 52%;
+    justify-content:start;
 }
 
 .errores{

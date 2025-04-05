@@ -22,7 +22,7 @@ export const Login = () => {
       <hr className="hr-thin" />
 
       <form className="bg-dark form" onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="mb-3 inputs">
           <label htmlFor="userNameInput" className="form-label text-white">
             Nombre de Usuario
           </label>
@@ -40,7 +40,7 @@ export const Login = () => {
             {hasError.nombreUsuario.textError}
           </p>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 inputs">
           <label htmlFor="passwordInput" className="form-label text-white">
             Contraseña
           </label>
