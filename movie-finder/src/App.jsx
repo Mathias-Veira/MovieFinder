@@ -1,5 +1,5 @@
 import { PrivateRouteComponent } from "./components/PrivateRouteComponent"
-import { Home } from "./pages/Home"
+import { Home } from "./pages/home/Home"
 import { Login } from "./pages/login/Login"
 import { Registro } from "./pages/registro/Registro"
 import {Route,Routes} from "react-router-dom"
