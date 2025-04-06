@@ -1,15 +1,14 @@
+import "./registro.css";
 import { Link } from "react-router-dom";
-import "./login.css";
-import { useSubmit } from "../../hooks/useSubmit";
 import { useEffect } from "react";
+import { useSubmit } from "../../hooks/useSubmit";
+export const Registro = () => {
+  const { form, handleOnChange, handleSubmit,handleOnBlur,hasError,navigate,leerCookie } = useSubmit(false);
 
-export const Login = () => {
-  const { form, handleOnChange, handleSubmit,handleOnBlur,hasError,navigate,leerCookie } = useSubmit(true);
   useEffect(() => {
-    const user = leerCookie('usuario');
-    if(user) navigate('/home')
-  }, [])
-  
+      const user = leerCookie('usuario');
+      if(user) navigate('/home')
+    }, [])
   return (
     <>
       <nav className="navbar bg-dark">
@@ -21,7 +20,6 @@ export const Login = () => {
         </div>
       </nav>
       <hr className="hr-thin" />
-
       <form className="bg-dark form" onSubmit={handleSubmit}>
         <div className="mb-3 inputs">
           <label htmlFor="userNameInput" className="form-label text-white">
@@ -39,6 +37,25 @@ export const Login = () => {
           />
           <p className="errores" hidden={!hasError.nombreUsuario.error}>
             {hasError.nombreUsuario.textError}
+          </p>
+        </div>
+
+        <div className="mb-3 inputs">
+          <label htmlFor="emailInput" className="form-label text-white">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="emailInput"
+            name="emailUsuario"
+            value={form.emailUsuario}
+            onChange={handleOnChange}
+            onBlur={handleOnBlur}
+            required
+          />
+          <p className="errores" hidden={!hasError.emailUsuario.error}>
+            {hasError.emailUsuario.textError}
           </p>
         </div>
         <div className="mb-3 inputs">
@@ -60,15 +77,15 @@ export const Login = () => {
           </p>
         </div>
         <div className="mb-3 d-flex justify-content-center align-items-center flex-column">
-          <p className="text-white">¿No tienes cuenta?</p>
-          <Link to={'/registro'} className="text-white">
-            Registrate
+          <p className="text-white">¿Ya tienes cuenta?</p>
+          <Link to={'/'} className="text-white">
+            Iniciar Sesión
           </Link>
         </div>
-        <button type="submit" className="btn btn-primary" disabled={hasError.nombreUsuario.error || hasError.passwordUsuario.error}>
-          Log In
+        <button type="submit" className="btn btn-primary" disabled={hasError.nombreUsuario.error || hasError.emailUsuario.error|| hasError.passwordUsuario.error}>
+          Registrarse
         </button>
       </form>
     </>
-  );
-};
+  )
+}
