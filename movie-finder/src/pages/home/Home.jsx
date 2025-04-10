@@ -2,7 +2,7 @@ import { useFetchData } from "../../hooks/useFetchData";
 import "./home.css";
 
 export const Home = () => {
-  const movies = useFetchData();
+  const movies = useFetchData(0);
 
   return (
     <>
@@ -18,18 +18,19 @@ export const Home = () => {
 
       <div className="container-fluid bg-dark">
         <div className="movies">
-          <h6 className="text-white">Películas</h6>
+          <h6 className="text-white">Movies</h6>
           <div className="mostrarMovies text-white">
             {movies.map((movie) => (
-              <>
-                <div className="movie-card">
+              
+                <div key={movie.idPelicula}  className="movie-card">
                   <img
                     src={`http://image.tmdb.org/t/p/w185/${movie.urlPosterPelicula}`}
                     alt="pelicula"
                   />
-                  <p key={movie.idPelicula}>{movie.tituloPelicula}</p>
+                  <p className="mb-0">{movie.tituloPelicula}</p>
+                  <p className="mb-0 ">{movie.fechaSalidaPelicula}</p>
                 </div>
-              </>
+              
             ))}
           </div>
         </div>

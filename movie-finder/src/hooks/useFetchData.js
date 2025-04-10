@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-export const useFetchData = () => {
+export const useFetchData = (page) => {
   const [data, setData] = useState([]);
   const fetchUsers = async () => {
     try {
       const response = await fetch(
-        'http://localhost:8080/api/movies'
+        `http://localhost:8080/api/movies?page=${page}`
       );
       const res = await response.json();
-      setData(res);
+      setData(res.content);
     } catch (error) {
       console.error(error);
     }
