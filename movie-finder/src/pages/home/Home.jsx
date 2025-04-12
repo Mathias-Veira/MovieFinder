@@ -1,9 +1,12 @@
 import { useFetchData } from "../../hooks/useFetchData";
 import "./home.css";
+import * as React from 'react';
+import { Pagination } from '@mui/material'
 
 export const Home = () => {
-  const movies = useFetchData(0);
-
+  const {data,handleChange} = useFetchData();
+  const totalPaginas = 500;
+  
   return (
     <>
       <nav className="navbar bg-dark">
@@ -20,7 +23,7 @@ export const Home = () => {
         <div className="movies">
           <h6 className="text-white">Movies</h6>
           <div className="mostrarMovies text-white">
-            {movies.map((movie) => (
+            {data?.map((movie) => (
               
                 <div key={movie.idPelicula}  className="movie-card">
                   <img
@@ -33,6 +36,19 @@ export const Home = () => {
               
             ))}
           </div>
+          <div className="d-flex justify-content-center w-100 color-white">
+          <Pagination onChange={handleChange} color="primary" size="large" count={totalPaginas} showFirstButton showLastButton sx={{
+        '& .MuiPaginationItem-root': {
+          color: 'white', // cambia el color del número
+          borderColor: 'white', // cambia el color del borde del botón
+        },
+        '& .Mui-selected': {
+          backgroundColor: 'white',
+          color: 'black',
+        },
+      }}></Pagination>
+          </div>
+          
         </div>
       </div>
     </>
