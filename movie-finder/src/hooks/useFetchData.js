@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 export const useFetchData = () => {
   const [data, setData] = useState([]);
+  const [totalPages, setTotalPages] = useState(0)
   const [handlePage, setHandlePage] = useState(0);
   const handleChange = (_,page) => {
     setHandlePage(page-1);
@@ -12,7 +13,7 @@ export const useFetchData = () => {
       );
       const res = await response.json();
       setData(res.content);
-      
+      setTotalPages(res.totalPages);
     } catch (error) {
       console.error(error);
     }
@@ -21,5 +22,5 @@ export const useFetchData = () => {
     fetchMovies();
   }, [handlePage]);
 
-  return { data, handleChange };
+  return { data, handleChange,totalPages };
 };

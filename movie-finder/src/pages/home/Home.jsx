@@ -4,8 +4,7 @@ import * as React from 'react';
 import { Pagination } from '@mui/material'
 
 export const Home = () => {
-  const {data,handleChange} = useFetchData();
-  const totalPaginas = 500;
+  const {data,handleChange,totalPages} = useFetchData();
   
   return (
     <>
@@ -37,7 +36,7 @@ export const Home = () => {
             ))}
           </div>
           <div className="d-flex justify-content-center w-100 color-white">
-          <Pagination onChange={handleChange} color="primary" size="large" count={totalPaginas} showFirstButton showLastButton sx={{
+          <Pagination onChange={handleChange} color="primary" size="large" count={totalPages} showFirstButton showLastButton sx={{
         '& .MuiPaginationItem-root': {
           color: 'white', // cambia el color del número
           borderColor: 'white', // cambia el color del borde del botón
