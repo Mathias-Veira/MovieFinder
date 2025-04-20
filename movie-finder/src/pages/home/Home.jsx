@@ -31,7 +31,7 @@ export const Home = () => {
                     alt="pelicula"
                   />
                   <p className="mb-0">{movie.tituloPelicula}</p>
-                  <p className="mb-0 ">{movie.fechaSalidaPelicula}</p>
+                  <p className="mb-0 ">{new Date(movie.fechaSalidaPelicula).getFullYear()}</p>
                 </div>
               
             ))}
