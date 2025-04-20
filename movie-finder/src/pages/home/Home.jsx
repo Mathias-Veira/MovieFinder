@@ -2,21 +2,14 @@ import { useFetchData } from "../../hooks/useFetchData";
 import "./home.css";
 import * as React from 'react';
 import { Pagination } from '@mui/material'
+import { NavBarComponent } from "../../components/NavBarComponent";
 
 export const Home = () => {
   const {data,handleChange,totalPages} = useFetchData();
   
   return (
     <>
-      <nav className="navbar bg-dark">
-        <div className="container-fluid">
-          <span className="navbar-brand mb-0 h1 d-flex w-100 align-items-center column-gap-1 text-white">
-            <i className="fa-solid fa-film"></i>
-            <p className="mb-0 ">MovieFinder</p>
-          </span>
-        </div>
-      </nav>
-      <hr className="hr-thin" />
+      <NavBarComponent></NavBarComponent>
 
       <div className="container-fluid bg-dark">
         <div className="movies">

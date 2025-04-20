@@ -2,6 +2,7 @@ import "./registro.css";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSubmit } from "../../hooks/useSubmit";
+import { NavBarComponent } from "../../components/NavBarComponent";
 export const Registro = () => {
   const { form, handleOnChange, handleSubmit,handleOnBlur,hasError,navigate,leerCookie } = useSubmit(false);
 
@@ -11,15 +12,7 @@ export const Registro = () => {
     }, [])
   return (
     <>
-      <nav className="navbar bg-dark">
-        <div className="container-fluid">
-          <span className="navbar-brand mb-0 h1 d-flex w-100 align-items-center column-gap-1 text-white">
-            <i className="fa-solid fa-film"></i>
-            <p className="mb-0 ">MovieFinder</p>
-          </span>
-        </div>
-      </nav>
-      <hr className="hr-thin" />
+      <NavBarComponent></NavBarComponent>
       <form className="bg-dark form" onSubmit={handleSubmit}>
         <div className="mb-3 inputs">
           <label htmlFor="userNameInput" className="form-label text-white">

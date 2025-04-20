@@ -1,9 +1,3 @@
-.hr-thin{
-    /* 0.5px */
-    border-top:0.03125rem solid;
-    margin: 0;
-}
-
 .movies{
     padding: 2rem;
     height: auto;
