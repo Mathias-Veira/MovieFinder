@@ -9,7 +9,7 @@ import { useFilters } from "../../hooks/useFilters";
 export const Home = () => {
   const { data, handleChange, totalPages } = useFetchData();
   const {genre} = useGenres();
-  const { movies, handleFilterChange,handleGenreChange, paginasTotales,handlePage } = useFilters();
+  const { movies, handleFilterChange,handleGenreChange, paginasTotales } = useFilters();
   return (
     <>
       <NavBarComponent></NavBarComponent>
