@@ -7,9 +7,9 @@ import { useGenres } from "../../hooks/useGenres";
 import { useFilters } from "../../hooks/useFilters";
 
 export const Home = () => {
-  const { data, handleChange, totalPages } = useFetchData();
+  const { data, handleChange, totalPages,handlePage } = useFetchData();
   const {genre} = useGenres();
-  const { movies, handleFilterChange,handleGenreChange, paginasTotales } = useFilters();
+  const { movies, handleFilterChange,handleGenreChange, paginasTotales,handleFilterPage } = useFilters();
   return (
     <>
       <NavBarComponent></NavBarComponent>
@@ -45,6 +45,7 @@ export const Home = () => {
           </div>
           <div className="d-flex justify-content-center w-100 color-white">
             <Pagination
+              page={movies.length>0?handleFilterPage+1:handlePage+1}
               onChange={movies.length>0?handleFilterChange:handleChange}
               color="primary"
               size="large"

@@ -22,5 +22,5 @@ export const useFetchData = () => {
     fetchMovies();
   }, [handlePage]);
 
-  return { data, handleChange,totalPages };
+  return { data, handleChange,totalPages,handlePage };
 };

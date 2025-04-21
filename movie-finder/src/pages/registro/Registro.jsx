@@ -13,7 +13,7 @@ export const Registro = () => {
   return (
     <>
       <NavBarComponent></NavBarComponent>
-      <form className="bg-dark form" onSubmit={handleSubmit}>
+      <form className="bg-dark form h-100" onSubmit={handleSubmit}>
         <div className="mb-3 inputs">
           <label htmlFor="userNameInput" className="form-label text-white">
             Nombre de Usuario
