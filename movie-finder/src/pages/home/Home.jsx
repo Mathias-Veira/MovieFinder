@@ -7,9 +7,9 @@ import { useGenres } from "../../hooks/useGenres";
 import { useFilters } from "../../hooks/useFilters";
 
 export const Home = () => {
-  const { data, handleChange, totalPages,handlePage } = useFetchData();
   const {genre} = useGenres();
   const { movies, handleFilterChange,handleGenreChange, paginasTotales,handleFilterPage } = useFilters();
+  const { data, handleChange, handleOnChange,totalPages,handlePage,movieName } = useFetchData();
   return (
     <>
       <NavBarComponent></NavBarComponent>
@@ -19,7 +19,7 @@ export const Home = () => {
           <div className="d-flex justify-content-between w-25 mb-3">
           <h6 className="text-white">Movies</h6>
           {/* Aquí van los filtros */}
-          <div>
+          <div className="w-100 ms-4">
               <select name="" id="" onChange={handleGenreChange}>
                 <option value="-1">Selecciona una opción</option>
                 {genre.map((genero) => (
@@ -27,6 +27,8 @@ export const Home = () => {
                     <option key={genero.idGenero} value={genero.idGenero}>{genero.nombreGenero}</option>
                 ))}
               </select>
+              <input type="text" onChange={handleOnChange} value={movieName} />
+              
           </div>
           </div>  
           <div className="d-flex flex-wrap gap-5 w-100 text-white">
