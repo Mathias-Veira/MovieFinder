@@ -4,9 +4,7 @@ export const useFetchData = () => {
   const [totalPages, setTotalPages] = useState(0)
   const [handlePage, setHandlePage] = useState(0);
   const [movieName, setMovieName] = useState("");
-  const objeto = {
-    isFindMovie : true
-  };
+  let isFindMovie = true;
 
   const handleChange = (_,page) => {
     setHandlePage(page-1);
@@ -15,13 +13,13 @@ export const useFetchData = () => {
     const { value } = target;
     setMovieName(value);
     if(value.trim()===''){
-      objeto.isFindMovie = false;
+      isFindMovie = false;
     }
     
   };
 
   const fetchMovies = async () => {
-    const url = !objeto.isFindMovie? `http://localhost:8080/api/movies?page=${handlePage}`:`http://localhost:8080/api/movies_by_name?titulo=${movieName}&page=${handlePage}`;
+    const url = !isFindMovie? `http://localhost:8080/api/movies?page=${handlePage}`:`http://localhost:8080/api/movies_by_name?titulo=${movieName}&page=${handlePage}`;
     try {
       const response = await fetch(
         url
