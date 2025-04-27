@@ -35,7 +35,7 @@ export const Home = () => {
             {(movies.length>0?movies:data).map((movie) => (
               <div key={movie.idPelicula} className="d-flex flex-column movie" style={{width:"6%", fontSize: "1em"}}>
                 <img
-                  src={`http://image.tmdb.org/t/p/w185/${movie.urlPosterPelicula}`}
+                  src={`http://image.tmdb.org/t/p/w185${movie.urlPosterPelicula}`}
                   alt="pelicula"
                 />
                 <p className="mb-0">{movie.tituloPelicula}</p>

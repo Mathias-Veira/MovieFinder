@@ -15,7 +15,7 @@ export const useFetchData = () => {
     if(value.trim()===''){
       isFindMovie = false;
     }
-    
+    setHandlePage(0);
   };
 
   const fetchMovies = async () => {
