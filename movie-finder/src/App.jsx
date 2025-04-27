@@ -1,6 +1,7 @@
 import { PrivateRouteComponent } from "./components/PrivateRouteComponent"
 import { Home } from "./pages/home/Home"
 import { Login } from "./pages/login/Login"
+import { MovieDetail } from "./pages/movieDetail/MovieDetail"
 import { Registro } from "./pages/registro/Registro"
 import {Route,Routes} from "react-router-dom"
 export const App = () => {
@@ -10,6 +11,7 @@ export const App = () => {
             <Route path="/" element={<Login></Login>}></Route>
             <Route path="/registro" element={<Registro></Registro>}></Route>
             <Route path="/home" element={<PrivateRouteComponent><Home/></PrivateRouteComponent>}/>
+            <Route path="/detail/:idPelicula" element={<PrivateRouteComponent><MovieDetail/></PrivateRouteComponent>}/>
 
         </Routes>
     </>
