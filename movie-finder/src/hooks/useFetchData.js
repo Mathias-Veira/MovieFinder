@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export const useFetchData = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(0)
   const [handlePage, setHandlePage] = useState(0);
@@ -37,5 +39,9 @@ export const useFetchData = () => {
     return () => clearTimeout(getData);
   }, [handlePage,movieName]);
 
-  return { data, handleChange,handleOnChange,totalPages,handlePage,movieName };
+  const navigateToDetail = (idPelicula) =>{
+    navigate(`/detail/${idPelicula}`);
+  }
+
+  return { data, handleChange,handleOnChange,totalPages,handlePage,movieName,navigateToDetail };
 };

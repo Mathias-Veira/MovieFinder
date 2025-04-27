@@ -9,7 +9,7 @@ import { useFilters } from "../../hooks/useFilters";
 export const Home = () => {
   const {genre} = useGenres();
   const { movies, handleFilterChange,handleGenreChange, paginasTotales,handleFilterPage } = useFilters();
-  const { data, handleChange, handleOnChange,totalPages,handlePage,movieName } = useFetchData();
+  const { data, handleChange, handleOnChange,totalPages,handlePage,movieName,navigateToDetail } = useFetchData();
   return (
     <>
       <NavBarComponent></NavBarComponent>
@@ -33,7 +33,7 @@ export const Home = () => {
           </div>  
           <div className="d-flex flex-wrap gap-5 w-100 text-white">
             {(movies.length>0?movies:data).map((movie) => (
-              <div key={movie.idPelicula} className="d-flex flex-column movie" style={{width:"6%", fontSize: "1em"}}>
+              <div key={movie.idPelicula} className="d-flex flex-column movie" onClick={() => navigateToDetail(movie.idPelicula)} style={{width:"6%", fontSize: "1em"}}>
                 <img
                   src={`http://image.tmdb.org/t/p/w185${movie.urlPosterPelicula}`}
                   alt="pelicula"
