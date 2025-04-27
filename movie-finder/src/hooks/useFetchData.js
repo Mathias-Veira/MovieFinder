@@ -33,7 +33,8 @@ export const useFetchData = () => {
 
   };
   useEffect(() => {
-    fetchMovies();
+    const getData = setTimeout(fetchMovies,500);
+    return () => clearTimeout(getData);
   }, [handlePage,movieName]);
 
   return { data, handleChange,handleOnChange,totalPages,handlePage,movieName };
