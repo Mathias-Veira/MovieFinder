@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { NavBarComponent } from "../../components/NavBarComponent";
 import { useMovieDetail } from "../../hooks/useMovieDetail";
 import { useState } from "react";
+import { AboutPageComponent } from "../../components/AboutPageComponent";
+import { CastPageComponent } from "../../components/CastPageComponent";
 export const MovieDetail = () => {
   const { idPelicula } = useParams();
   const { details, cast, crew } = useMovieDetail(idPelicula);
@@ -9,9 +11,9 @@ export const MovieDetail = () => {
   return (
     <>
       <NavBarComponent></NavBarComponent>
-      <div className="container-fluid bg-dark h-100 w-100">
-        <div className="p-4">
-          <div className="row h-75">
+      <div className="container-fluid bg-dark h-100" style={{ overflowY: "auto" }}>
+        <div className="p-4 ">
+          <div className="row">
             <div className="col-12">
               <div className="d-flex justify-content-center">
                 <img
@@ -68,7 +70,7 @@ export const MovieDetail = () => {
                     
                     onClick={()=>setSelectedTab("about")}
                   >
-                    About
+                    Acerca de
                   </a>
                 </li>
                 <li className="nav-item">
@@ -84,12 +86,13 @@ export const MovieDetail = () => {
                     
                     onClick={() => setSelectedTab("cast&crew")}
                   >
-                    Cast & Crew
+                    Reparto
                   </a>
                 </li>
               </ul>
             </div>
           </div>
+          {selectedTab == "about"?<AboutPageComponent details={details}></AboutPageComponent>:<CastPageComponent cast={cast} crew={crew} ></CastPageComponent>}
         </div>
       </div>
     </>
