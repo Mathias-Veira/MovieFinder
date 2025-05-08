@@ -46,7 +46,39 @@ export const MovieDetail = () => {
               </p>
             </div>
           </div>
+          <div className="row">
+            <div className="w-100 my-3 d-flex justify-content-start">
+              <div className="justify-content-center" style={{
+        backgroundColor: "white",
+        border: "2px solid #ccc",
+        borderRadius: "50%",
+        width: "40px",
+        height: "40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        marginLeft: "33.6%"
+      }}> 
+            <i class="fa-solid fa-eye-slash"></i>
+              </div>
 
+
+              <div className="justify-content-center mx-3" style={{
+        backgroundColor: "white",
+        border: "2px solid #ccc",
+        borderRadius: "50%",
+        width: "40px",
+        height: "40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+      }}> 
+            <i class="fa-regular fa-bookmark"></i>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="col-12">
               <ul

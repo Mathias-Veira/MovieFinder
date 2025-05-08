@@ -2,7 +2,7 @@ export const CastPageComponent = ({ cast, crew }) => {
   return (
     <div className="row">
       <div className="col-12" style={{ paddingLeft: "33.6%" }}>
-        <h1 className="text-white fs-2 my-3 ">Actores</h1>
+        <h1 className="text-white fs-2 my-3 text-decoration-underline">Actores</h1>
         <div className="d-flex flex-wrap gap-5 w-50 ">
         {cast?.filter((reparto)=>reparto.profile_path != null).slice(0,10).map((reparto) =>{
               return(
