@@ -4,10 +4,29 @@ import { useMovieDetail } from "../../hooks/useMovieDetail";
 import { useState } from "react";
 import { AboutPageComponent } from "../../components/AboutPageComponent";
 import { CastPageComponent } from "../../components/CastPageComponent";
+import { useMarkMovies } from "../../hooks/useMarkMovies";
 export const MovieDetail = () => {
   const { idPelicula } = useParams();
   const { details, cast, crew } = useMovieDetail(idPelicula);
   const [selectedTab, setSelectedTab] = useState("about");
+  let user = leerCookie('usuario');
+  user = JSON.parse(JSON.parse(user));
+  const {markMovieAsSeen,markMovieAsFavourite,seen,favourite} = useMarkMovies(parseInt(idPelicula),user.idUsuario);
+  
+  
+  function leerCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == " ") c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) {
+      return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+  }
+  return null;
+}
+
   return (
     <>
       <NavBarComponent></NavBarComponent>
@@ -60,7 +79,7 @@ export const MovieDetail = () => {
         cursor: "pointer",
         marginLeft: "33.6%"
       }}> 
-            <i class="fa-solid fa-eye-slash"></i>
+            <i onClick={markMovieAsSeen} className={`fa-solid fa-eye${seen?"":"-slash"}`}></i>
               </div>
 
 
@@ -75,7 +94,7 @@ export const MovieDetail = () => {
         justifyContent: "center",
         cursor: "pointer",
       }}> 
-            <i class="fa-regular fa-bookmark"></i>
+            <i onClick={markMovieAsFavourite} className={`fa-${favourite?"solid":"regular"} fa-bookmark`}></i>
               </div>
             </div>
           </div>
