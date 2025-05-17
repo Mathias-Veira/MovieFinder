@@ -37,7 +37,7 @@ export const MovieDetail = () => {
               <div className="d-flex justify-content-center">
                 <img
                   
-                  src={`http://image.tmdb.org/t/p/w342${details?.poster_path}`}
+                  src={`http://image.tmdb.org/t/p/w342${details.poster_path==null?details.backdrop_path:details.poster_path}`}
                 ></img>
               </div>
             </div>
