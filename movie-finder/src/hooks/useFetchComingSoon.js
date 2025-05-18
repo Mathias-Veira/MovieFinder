@@ -4,7 +4,7 @@ export const useFetchComingSoon = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(0)
-  const [handlePage, setHandlePage] = useState(1);
+  const [handlePage, setHandlePage] = useState(0);
 
   const handleChange = (_,page) => {
     setHandlePage(page-1);
