@@ -9,7 +9,7 @@ export default function ValoracionComponent({ idPelicula }) {
         </h1>
       <Box>
         {data?.map((review) => (
-          <div className="row">
+          <div className="row" key={review.idValorar}>
             <div className="col-12" style={{ paddingLeft: "33.6%" }}>
               <Box key={review.idValorar} mb={4}>
                 <Stack direction="row" spacing={2} alignItems="center">
