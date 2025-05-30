@@ -6,6 +6,7 @@ import { AboutPageComponent } from "../../components/AboutPageComponent";
 import { CastPageComponent } from "../../components/CastPageComponent";
 import { useMarkMovies } from "../../hooks/useMarkMovies";
 import ValoracionComponent from "../../components/ValoracionComponent";
+import { AñadirValoracionComponent } from "../../components/AñadirValoracionComponent";
 export const MovieDetail = () => {
   const { idPelicula } = useParams();
   const { details, cast, crew } = useMovieDetail(idPelicula);
@@ -146,6 +147,7 @@ export const MovieDetail = () => {
           </div>
           {selectedTab == "about"?<AboutPageComponent details={details}></AboutPageComponent>:<CastPageComponent cast={cast} crew={crew} ></CastPageComponent>}
           <ValoracionComponent idPelicula={idPelicula}></ValoracionComponent>
+          <AñadirValoracionComponent idPelicula={idPelicula} idUsuario={user.idUsuario}></AñadirValoracionComponent>
         </div>
       </div>
     </>

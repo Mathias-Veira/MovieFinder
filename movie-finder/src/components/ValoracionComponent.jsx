@@ -21,7 +21,10 @@ export default function ValoracionComponent({ idPelicula }) {
                     </Typography>
                   </Box>
                 </Stack>
-                <Rating value={review.valoracion} readOnly sx={{ mt: 1 }} />
+                <Rating value={review.valoracion} readOnly sx={{ mt: 1 ,"& .MuiSvgIcon-root": {
+                    stroke: "white",
+                    strokeWidth: 1,
+                  }, }} />
                 <Typography color="white" sx={{ mt: 1 }}>{review.textoValoracion}</Typography>
               </Box>
             </div>
