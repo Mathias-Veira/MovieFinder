@@ -147,7 +147,7 @@ export const MovieDetail = () => {
           </div>
           {selectedTab == "about"?<AboutPageComponent details={details}></AboutPageComponent>:<CastPageComponent cast={cast} crew={crew} ></CastPageComponent>}
           <ValoracionComponent idPelicula={idPelicula}></ValoracionComponent>
-          <AñadirValoracionComponent idPelicula={idPelicula} idUsuario={user.idUsuario}></AñadirValoracionComponent>
+          <AñadirValoracionComponent idPelicula={idPelicula} idUsuario={user.idUsuario} seen={seen}></AñadirValoracionComponent>
         </div>
       </div>
     </>

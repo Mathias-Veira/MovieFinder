@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Rating } from "@mui/material";
 import { useSendRating } from "../hooks/useSendRating";
-export const AñadirValoracionComponent = ({ idPelicula, idUsuario }) => {
+export const AñadirValoracionComponent = ({ idPelicula, idUsuario,seen }) => {
      const [valoracion, setValoracion] = useState(0);
      const [comentario, setComentario] = useState("");
     const {handleClick} = useSendRating(parseInt(idPelicula),idUsuario,valoracion,comentario);
@@ -47,7 +47,7 @@ export const AñadirValoracionComponent = ({ idPelicula, idUsuario }) => {
                 }}
               />
 
-              <button className="w-25" onClick={handleClick}>Enviar valoración</button>
+              <button className="w-25" onClick={handleClick} disabled={!seen}>Enviar valoración</button>
             </div>
           </div>
         </Box>
